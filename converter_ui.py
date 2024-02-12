@@ -55,8 +55,8 @@ class ConverterUI(tk.Tk):
         self.unit_select2 = ttk.Combobox(self, width=11, textvariable=self.unit_name2, font=self.font)
 
         # user_input_number
-        self.input_left = tk.Entry(self, width=10, font=self.font, textvariable=self.user_int_left)
-        self.input_right = tk.Entry(self, width=10, font=self.font, textvariable=self.user_int_right)
+        self.input_left = tk.Entry(self, width=10, font=self.font, textvariable=self.user_int_left, bg="white")
+        self.input_right = tk.Entry(self, width=10, font=self.font, textvariable=self.user_int_right, bg="white")
 
         self.init_components()
         self.load_units(self.strategy)
