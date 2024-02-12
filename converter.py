@@ -32,29 +32,18 @@ class UnitConverter:
             if class_name in unit.value:
                 return unit.cls
 
-        for length in list(LengthUnit):
-            if class_name in length.value:
-                return length
-
-        for temp in list(TempUnit):
-            if class_name in temp.value:
-                return temp
-
-        for money in list(TimeUnit):
-            if class_name in money.value:
-                return money
-
-        for emerald in list(EmeraldUnit):
-            if class_name in emerald.value:
-                return emerald
+        all_unit = [unit.cls for unit in UnitType]
+        for find in all_unit:
+            for unit_name in find:  # if only I can use .full_unit my code will look better and can manage better
+                if class_name in unit_name.value:
+                    return unit_name
 
         # unknown class
         return 0
 
-    def calculator(self, value: int or float, strategy):
+    def calculator(self, value: float, strategy):
         """this method return converted value"""
         self.strategy = strategy
-
         return self.strategy.reality_breaker(self.initial, self.last_unit, value)
 
 

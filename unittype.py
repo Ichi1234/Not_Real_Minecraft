@@ -50,7 +50,7 @@ class TempUnit(enum.Enum):
     def __init__(self, integer, value_name):
         """initialize of TempUnit"""
         self.integer = integer
-        self.value_name = value_name
+        self.full_unit = value_name
 
     @staticmethod
     def reality_breaker(first_unit, desire_unit, user_value):
@@ -65,7 +65,7 @@ class TempUnit(enum.Enum):
         return f"{(value_to_celsius * desire_unit.integer['mul']) + desire_unit.integer['offset'] :.5g}"
 
     def __str__(self):
-        return self.value_name
+        return self.full_unit
 
 
 class TimeUnit(enum.Enum):
@@ -74,7 +74,6 @@ class TimeUnit(enum.Enum):
     HOUR = (1, "Hour")
     MINUTE = (60, "Minute")
     SEC = (3600, "Second")
-
 
     @staticmethod
     def reality_breaker(first_unit, desire_unit, user_value):
@@ -102,8 +101,8 @@ class EmeraldUnit(enum.Enum):
     # info inspired from https://minecraft.fandom.com/wiki/Trading
 
     EM = (1, "Emerald")
-    COAL = (1/15, "Coal")
-    FLINT = (1/24, "Flint")
+    COAL = (1 / 15, "Coal")
+    FLINT = (1 / 24, "Flint")
     I_AXE = (3, "Iron Axe")
     I_SWORD = (8, "Iron Sword")
     D_AXE = (18, "Diamond Axe")
